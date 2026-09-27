@@ -10,11 +10,11 @@ function repartirTasques(familia, tasques, setmanes){
     for (let i = 0; i < setmanes; i++){
         console.log("Setmana " + (i + 1) + ": ")
 
-        for (let j = 0; j < familia.length; j++){
-            const tascaSeleccionada = [(i + j) % tasques.length];
-            const membreSeleccioant = familia[j]
+        for (let j = 0; j < tasques.length; j++){
+            const tascaSeleccionada = tasques[j]
+            const membreSeleccioant = familia[(i + j) % familia.length]
 
-            console.log(membreSeleccioant + " -> ", tasques[tascaSeleccionada])
+            console.log(membreSeleccioant + " -> ", tascaSeleccionada)
         }
     }
 }
