@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const cancio = "Una mosca volaba per la llum".toLowerCase()
+    const vocals = "aeiou";
+
+    function reemplazarVocals(vocal, cancio){
+        let newCancio = ""
+        for(let c of cancio){
+            newCancio += vocals.indexOf(c) === -1 ? c:vocal;
+        }
+        return newCancio;
+    }
+
+    //Algoritme
+    //console.log(reemplazarVocals(vocal, cancio));
+    function replace(cancio, vocal){
+        const lletres = cancio.split()
+        let finalText = ''
+        for (let i = 0; i < cancio.length; i++) {
+            //if (vocals.includes(cancio[i])){
+            if(cancio[i] === 'a' || cancio[i] === 'e', cancio[i] === 'i' || cancio[i] === 'o', cancio[i] === 'u'){
+                finalText += vocal
+            }else{
+                finalText += cancio[i]
+            }
+        }
+    }
+
+    for(let vocal of vocals){
+        console.log(replace(cancio, vocal))
+    }
+</script>
+</body>
+</html>
