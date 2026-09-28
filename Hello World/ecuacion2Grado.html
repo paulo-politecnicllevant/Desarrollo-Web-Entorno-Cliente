@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //Ejercicio3: Programar una ecuación de 2o grado
+
+    /*
+    Los valores vienen definidos en el enunciado,
+    si quiero hacerlo con los números que quiera mirar la funcion de abajo
+     */
+
+    function ecuacion2Grado(){
+        let positivo
+        let negativo
+
+        for (let a = -5; a <= 5; a++){
+            for (let b = -3; b <= 3; b++){
+                for (let c = 0; c <= 4; c++){
+                    positivo = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a)
+                    negativo = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a)
+
+                    console.log("Valores: a = " + a + ", b = " + b + ", c = " + c)
+                    console.log(positivo, negativo)
+                }
+            }
+        }
+        return[positivo, negativo]
+    }
+
+    ecuacion2Grado()
+
+
+    function ecuacion2GradoElegible(aRaw, bRaw, cRaw){
+        const a = parseFloat(aRaw);
+        const b = parseFloat(bRaw);
+        const c = parseFloat(cRaw);
+
+        if(isNaN(aRaw) && isNaN(bRaw) && isNaN(cRaw)){
+            return "Error en la ecuación"
+        }
+
+        const numerador = Math.sqrt(Math.pow(b, 2) - 4 * a * c)
+
+        let positivo = (-b + numerador) / (2 * a)
+        let negativo = (-b - numerador) / (2 * a)
+
+        console.log("Valores: a = " + a + " b = " + b + " c = " + c)
+        console.log(positivo, negativo)
+
+        return[positivo, negativo]
+    }
+</script>
+</body>
+</html>
