@@ -2,7 +2,7 @@
   "name": "DWEC",
   "version": "1.0.0",
   "description": "",
-  "main": "ejercicio.js",
+  "main": "Ejercicio4-TareasCiclicas/ejercicio.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
