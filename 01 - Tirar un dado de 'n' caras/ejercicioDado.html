@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const carasDado = 6
+    const numeroElegido = 1
+
+    function tirarDado(numCaras, numero){
+        const numeroRandom = Math.floor(Math.random() * numCaras) + 1
+
+        if(numeroRandom === numero){
+            console.log("Has ganado")
+        }
+
+        console.log(numeroRandom)
+    }
+
+    tirarDado(6, 1)
+
+
+</script>
+</body>
+</html>
