@@ -13,10 +13,14 @@
         const numeroRandom = Math.floor(Math.random() * numCaras) + 1
 
         if(numeroRandom === numero){
-            console.log("Has ganado")
+            console.log("Has ganado", numeroRandom)
+        }else{
+            console.log("No has ganado ", numeroRandom)
         }
+    }
 
-        console.log(numeroRandom)
+    function calcularEstadistica(){
+
     }
 
     tirarDado(6, 1)
