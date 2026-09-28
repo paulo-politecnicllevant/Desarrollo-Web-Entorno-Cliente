@@ -19,11 +19,21 @@
         }
     }
 
-    function calcularEstadistica(){
+    function calcularEstadistica(numElegido, numTiradas){
+        let contador = 0;
 
+        for(let i = 0; i < numTiradas; i++){
+            let resultado = Math.floor(Math.random() * carasDado)
+            if(resultado === numElegido){
+                contador++;
+            }
+        }
+        console.log("El numero escogido ha salido " + contador + " veces de " + numTiradas + " tiradas");
+        console.log("Eso es un " + contador /numTiradas * 100 + "% de probabilidad")
     }
 
     tirarDado(6, 1)
+    calcularEstadistica(5, 1000)
 
 
 </script>
