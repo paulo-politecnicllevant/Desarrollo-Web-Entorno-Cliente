@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .taronja{
+            color: orange;
+        }
+
+        .blau{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hello World</h1>
+<p class="paragraf-style" id="primer" data-paulo="Paulo">Paràgraf 1</p>
+<p>Paràgraf 2</p>
+<p>Paràgraf 3</p>
+<p>Paràgraf 4</p>
+<p>Paràgraf 5</p>
+
+<script>
+    const h1 = document.querySelector("h1")
+    /*
+    const paragrafs = document.querySelectorAll("p")
+
+    console.log(h1, paragrafs, paragrafs[0].id, paragrafs[0].classList, paragrafs[0].paulo);
+     */
+
+    //Párrafo 2 -> Modificado (tiene que pasar de decir una cosa a otra)
+    document.querySelector("p:nth-child(3)").innerHTML = "Modificado"
+
+    document.querySelectorAll("p")[1].innerHTML = "Modificado"
+
+    //Pintar los párrafos pares azul y los impares naranja
+    const paragrafs = document.querySelectorAll("p");
+    for (let i = 0; i < paragrafs.length; i++) {
+        if(i % 2 === 0){
+            paragrafs[i].classList.add('blau');
+        }else{
+            paragrafs[i].classList.add('taronja');
+        }
+    }
+
+    //Añadir un último párrafo que se diga "Último párrafo" (La primera forma de hacerla es la fea)
+    document.querySelector("body").innerHTML = document.querySelector("body").innerHTML + "<p>Último párrafo</p>"
+
+    const ultimoParrafo = document.createElement("p")
+    ultimoParrafo.innerHTML = "Último párrafo";
+    document.querySelector("body").appendChild(ultimoParrafo);
+</script>
+</body>
+</html>
