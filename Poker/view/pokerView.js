@@ -52,7 +52,7 @@ function cardMapToImg(carta){
 
     nom += '.png'
 
-    console.log("Numero de la imatge: ", nom);
+    //console.log("Numero de la imatge: ", nom);
     return nom;
 }
 
@@ -68,4 +68,46 @@ function pintarBotoPlay(jugarFn){
     button.addEventListener("click", jugarFn)
 
     document.querySelector("#app").appendChild(button);
+}
+
+function pintarResultat(isGuanyador, isBOM){
+    if(isBOM){
+        if(isGuanyador){
+            alert("Has guanyat")
+        }else{
+            alert("Has perdut")
+        }
+    }else{
+        const missatge = document.createElement("p");
+        missatge.innerText = (isGuanyador)?"Has guanyat":"Has perdut"
+        missatge.style.color = "red"
+        missatge.style.fontSize = "50px"
+
+        const finestra = document.createElement("div")
+        finestra.style.backgroundColor = "gray"
+        finestra.style.width = "400px"
+        finestra.style.height = "300px"
+        finestra.style.borderColor = "blue"
+        finestra.style.position = "relative"
+        finestra.appendChild(missatge);
+
+        document.querySelector("#app").appendChild(finestra);
+
+        const botoTancar = document.createElement("div")
+        botoTancar.innerText = "X"
+        botoTancar.style.backgroundColor = "red"
+        botoTancar.style.fontSize = "50px"
+        botoTancar.style.width = "50px"
+        botoTancar.style.height = "50px"
+        botoTancar.style.position = "absolute"
+        botoTancar.style.top = "0px"
+        botoTancar.style.right = "0px"
+        botoTancar.addEventListener("click", function(){
+            console.log("Click a tancar finestra")
+            finestra.style.display = "none"
+            location.reload();
+        })
+
+        finestra.appendChild(botoTancar);
+    }
 }

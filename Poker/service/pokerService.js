@@ -26,5 +26,13 @@ function mesclarIRepartirBaralla(baralla){
 }
 
 function comprovarMa(ma){
-    console.log("Comprovant la mà...")
+    //console.log("Comprovant la mà...", ma)
+    for (let i = 0; i < ma.length; i++) {
+        for (let j = i + 1; j < ma.length; j++) {
+            if(ma[i].nombre === ma[j].nombre){
+                return true
+            }
+        }
+    }
+    return false
 }
