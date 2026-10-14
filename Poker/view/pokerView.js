@@ -65,7 +65,16 @@ function pintarBotoPlay(jugarFn){
         comprovarMa(ma)
     })*/
 
-    button.addEventListener("click", jugarFn)
+    button.addEventListener("click", function(){
+        const trampes = prompt("Vols fer trampes?")
+
+        if(trampes === "SI"){
+            return 0;
+        }else if(trampes !== "SI"){
+            jugarFn();
+        }
+    })
+    //button.addEventListener("click", jugarFn)
 
     document.querySelector("#app").appendChild(button);
 }
