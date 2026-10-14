@@ -3,12 +3,16 @@
 function pintarMa(ma){
     const contenidor = document.getElementById("app");
 
+    const cartes = document.createElement("div");
+    contenidor.appendChild(cartes);
+
     for (const carta of ma) {
         const imgName = cardMapToImg(carta);
 
         const imatge = document.createElement("img");
         imatge.src = '../Poker/assets/cards/' + imgName
         imatge.width = 150
+
         contenidor.appendChild(imatge);
     }
 }
@@ -56,9 +60,15 @@ function cardMapToImg(carta){
     return nom;
 }
 
-function pintarBotoPlay(jugarFn){
+function pintarBotons(jugarFn){
     const button = document.createElement("button");
     button.innerHTML = "Jugar"
+
+    const tancarFinestra = document.createElement("button")
+    tancarFinestra.innerHTML = "Tancar la finestra del joc";
+
+    const tancarPrograma = document.createElement("button")
+    tancarPrograma.innerHTML = "Tancar tot el programa"
 
     /*button.addEventListener("click", function(){
         console.log("Playing")
@@ -67,6 +77,14 @@ function pintarBotoPlay(jugarFn){
 
     button.addEventListener("click", function(){
         const trampes = prompt("Vols fer trampes?")
+
+        tancarFinestra.addEventListener("click", function(){
+            finestra.close();
+        })
+
+        tancarPrograma.addEventListener("click", function(){
+            window.close();
+        })
 
         if(trampes === "SI"){
             alert("L'usuari està fent trampes")
@@ -77,10 +95,14 @@ function pintarBotoPlay(jugarFn){
             alert("L'usuari NO està fent trampes")
             jugarFn();
         }
+
+        const finestra = window.open("solucio.html", "_blank", "width=800,height=300")
     })
     //button.addEventListener("click", jugarFn)
 
     document.querySelector("#app").appendChild(button);
+    document.querySelector("#app").appendChild(tancarFinestra);
+    document.querySelector("#app").appendChild(tancarPrograma);
 }
 
 function pintarResultat(isGuanyador, isBOM){

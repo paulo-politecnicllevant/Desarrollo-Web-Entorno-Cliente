@@ -8,7 +8,7 @@ function init(){
     //console.log(baralla, ma)
 
     pintarMa(ma)
-    pintarBotoPlay(function(){
+    pintarBotons(function(){
         const isGuanyador = comprovarMa(ma)
         console.log("ha guanyat", isGuanyador)
         //TODO: pintar guanyador y comprovar ma(si hay parella)
