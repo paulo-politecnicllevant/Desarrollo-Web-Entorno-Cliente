@@ -69,8 +69,12 @@ function pintarBotoPlay(jugarFn){
         const trampes = prompt("Vols fer trampes?")
 
         if(trampes === "SI"){
-            return 0;
+            alert("L'usuari està fent trampes")
+            pintarResultat(true, false); /*Pongo que el isBOM es falso para que me salga el
+                                                           recuadro grande que dice que he ganado(es más visual),
+                                                           si pongo false, me sale un popup diciendo que he ganado*/
         }else if(trampes !== "SI"){
+            alert("L'usuari NO està fent trampes")
             jugarFn();
         }
     })
