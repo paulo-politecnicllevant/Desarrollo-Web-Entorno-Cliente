@@ -1,11 +1,39 @@
 function Crono(){
-    const fechaInicial = Date.now()
+    let dataInicial = Date.now()
+
+    function elapsedMs(){
+        const ara = Date.now();
+        return ara - dataInicial;
+    }
+
+    this.reset = function (){
+        dataInicial = Date.now();
+    }
+
+    this.elapsed = function (){
+        return elapsedMs()
+    }
+
+    this.restore = function (ms){
+        dataInicial = new Date(Date.now() - ms);
+        console.log(dataInicial);
+    }
+
     this.hora = function (){
-        const ahora = Date.now()
-        const elapsedTime = ahora - fechaInicial
-        //TODO
-        return elapsedTime;
-        //return ahora - fechaInicial --> horas
+        return Math.floor(elapsedMs() / (1000*60*60));
+        //return ara - dataInicial --> horas
+    }
+
+    this.minut = function (){
+        return Math.floor(elapsedMs() / (1000*60)) % 60;
+    }
+
+    this.segon = function (){
+        return Math.floor(elapsedMs() / (1000)) % 60;
+    }
+
+    this.milisegon = function (){
+        return Math.floor(elapsedMs() % 1000);
     }
     /*
     this.hora = hora;

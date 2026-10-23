@@ -1,6 +1,5 @@
 function init(){
-    const cronometro = initCronometro();
-    pintarCronometroInit(cronometro)
+    pintarCronometroInit()
 }
 
 init()
