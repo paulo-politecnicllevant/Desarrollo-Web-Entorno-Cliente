@@ -37,24 +37,44 @@
             const video = document.getElementById('program');
 
             const buttonPlay = document.getElementById('play');
-            buttonPlay.addEventListener('click', playVideo)
+            buttonPlay.addEventListener('click', function () {
+                video.play();
+            })
 
             const buttonPause = document.getElementById('stop');
-            buttonPause.addEventListener('click', pauseVideo)
-
-            function playVideo(){
-                video.play();
-            }
-
-            function pauseVideo(){
+            buttonPause.addEventListener('click', function () {
                 video.pause();
+            })
+
+            //Actividad b()
+            const videos = ["alldayfilms.webm", "kidstv.webm", "natureplus.webm", "sportstv.webm", "technologytoday.webm", "xtremsports.webm"]
+
+            function cercarIndexVideo(nom){
+                const nomDepurat = nom.split("/")
+                return videos.indexOf(nomDepurat[nomDepurat.length-1]);
             }
 
-            function init(){
-                playVideo()
-                pauseVideo()
-            }
-            init()
+            const buttonAnterior = document.getElementById('anterior');
+            buttonAnterior.addEventListener('click', function(){
+                const nomVideo = document.querySelector('#program-source').src;
+                let index = cercarIndexVideo(nomVideo)
+
+                if(index === 0){
+                    index = videos.length;
+                }
+
+                document.querySelector('#program-source').src = 'videos/'+videos[(index - 1) % videos.length]
+                document.querySelector('#program').load(nomVideo)
+            })
+
+            const buttonSeguent = document.getElementById('seguent');
+            buttonSeguent.addEventListener('click', function(){
+                const nomVideo = document.querySelector('#program-source').src;
+                const index = cercarIndexVideo(nomVideo)
+                document.querySelector('#program-source').src = 'videos/'+videos[(index + 1) % videos.length]
+                document.querySelector('#program').load(nomVideo)
+            })
+
         </script>
     </body>
 </html>
