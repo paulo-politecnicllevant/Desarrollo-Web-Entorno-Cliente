@@ -33,12 +33,15 @@
 
         <script>
             /* EXAMEN JS - ESCRIVIU AQUÍ LA VOSTRA SOLUCIÓ */
+            let cronometreActiu = false;
+
             //Actividad a() Hacer funcionar los botones play y stop
             const video = document.getElementById('program');
 
             const buttonPlay = document.getElementById('play');
             buttonPlay.addEventListener('click', function () {
                 video.play();
+                initCronometre()
             })
 
             const buttonPause = document.getElementById('stop');
