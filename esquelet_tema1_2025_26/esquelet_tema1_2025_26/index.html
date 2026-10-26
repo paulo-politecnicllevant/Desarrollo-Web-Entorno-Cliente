@@ -96,7 +96,23 @@
                 }
             }
 
+            //Actividad e()
+            let passarela;
 
+            const novaFinestra = document.createElement("button");
+            novaFinestra.innerText = "Nova finestra"
+            novaFinestra.addEventListener("click", function(){
+                passarela = window.open("https://paypal.com", "_blank", "width=600,height=400");
+            })
+            document.body.appendChild(novaFinestra);
+
+            //Actividad f()
+            const tancarFinestra = document.createElement("button");
+            tancarFinestra.innerText = "Tancar finestra"
+            tancarFinestra.addEventListener("click", function(){
+                passarela.close()
+            })
+            document.body.appendChild(tancarFinestra);
         </script>
     </body>
 </html>
