@@ -33,6 +33,28 @@
 
         <script>
             /* EXAMEN JS - ESCRIVIU AQUÍ LA VOSTRA SOLUCIÓ */
+            //Actividad a() Hacer funcionar los botones play y stop
+            const video = document.getElementById('program');
+
+            const buttonPlay = document.getElementById('play');
+            buttonPlay.addEventListener('click', playVideo)
+
+            const buttonPause = document.getElementById('stop');
+            buttonPause.addEventListener('click', pauseVideo)
+
+            function playVideo(){
+                video.play();
+            }
+
+            function pauseVideo(){
+                video.pause();
+            }
+
+            function init(){
+                playVideo()
+                pauseVideo()
+            }
+            init()
         </script>
     </body>
 </html>
