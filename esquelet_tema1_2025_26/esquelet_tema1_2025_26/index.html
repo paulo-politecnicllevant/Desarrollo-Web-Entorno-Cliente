@@ -78,6 +78,25 @@
                 document.querySelector('#program').load(nomVideo)
             })
 
+            //Actividad c()
+            function initCronometre() {
+                if (!cronometreActiu) {
+                    let segons5 = Date.now() + 5000
+                    const tvPagament = setInterval(function () {
+                        cronometreActiu = true;
+                        const diferencia = Math.round((segons5 - Date.now()) / 1000)
+                        document.querySelector("#timer").innerHTML = diferencia + "";
+
+                        if (diferencia === 0) {
+                            clearInterval(tvPagament);
+                            document.querySelector("#program").pause()
+                            cronometreActiu = false;
+                        }
+                    }, 100)
+                }
+            }
+
+
         </script>
     </body>
 </html>
