@@ -46,7 +46,7 @@ function pintarCountdownInit() {
         }
 
         if (isNaN(Number(inputSegundos.value))) {
-            mensaje.textContent = "El valor no es un nÚmero";
+            mensaje.textContent = "El valor no es un número";
             return;
         }
 
