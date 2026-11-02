@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello World</h1>
+<script>
+    console.log("Hello World")
+    console.info("Hello World")
+    console.error("Hello World")
+    console.warn("Hello World")
+    console.table(["Hello World"])
+
+    //VARIABLES
+    var a = 3; //Scope = Ambito de funcion
+
+    function prova(){
+        var a = 3;
+        console.log(a,b)
+
+        for(var b = 0; b < 5; b++){
+            console.log(a,b)
+        }
+        console.log(a,b)
+    }
+
+    // let y const tienen ambito de bloque
+    //let b = 3;
+    //const c = 3
+
+    function prova2(){
+        const a = 3;
+        //console.log(a,b)
+
+        //b = b + 1
+
+        for(let b = 0; b < 5; b++){
+            console.log(a,b)
+        }
+        //console.log(a,b)
+
+        const c = ["poma", "pera"]
+        console.log(c)
+        c.push("taronja")
+        console.log(c)
+        // c = ["poma", "pera", "taronja"]  Esto no se puede hacer
+    }
+
+    let d = 4   //Number
+    d = "Hola"  //String
+    console.log(d)
+
+    //TIPOS DE DATOS
+    //UNDEFINED
+    let e;
+
+    console.log("e", e)
+
+    //NULL
+    let f = null
+    console.log("f", f)
+
+    //STRING
+    const patata = "patata"
+    const g = "Hola" + patata + "1"
+    const h = 'Hola' + patata + '2'
+    const i = `Hola ${patata} 3`
+
+    //NUMBERS
+    const a1 = 3
+    const b1 = 4
+    const c1 = "5"
+    const d1 = suma(a1, b1, c1) //75 debería ser 12
+    const d2 = suma(c1, b1, a1) //543 debería ser 12
+    console.log("d1", d1, "d2", d2)
+
+    //EJERCICIO DE CREAR 3 OBJETOS PERSONA
+    const paulo = {
+        nombre: "Paulo",
+        edad: 20
+    }
+
+    function Persona(nombre, edad){
+        this.nombre = nombre
+        this.edad = edad
+    }
+
+    const paco = new Persona("Paco", 80)
+
+    console.log(paulo, paco)
+
+
+
+
+    //FUNCIONES
+    //PARÁMETROS: no tienen un tipo implícito
+    //RETURN: no tienen un return implícito
+    function suma(a, b, c){
+        //return a + b + c
+        return parseFloat(a) + parseFloat(b) + parseFloat(c)
+    }
+
+
+
+
+
+
+    //prova2(d)
+</script>
+</body>
+</html>
