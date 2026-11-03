@@ -11,7 +11,8 @@ function initLletres(){
 function initParaula(lletres){
     const paraulesDisponibles = ["windows", "macosx", "linux", "java", "informatica", "programacio"]
     //Agafam una paraula aleatoria
-    const paraulaAleatoria = paraulesDisponibles[2].split("")
+    const index = Math.floor(Math.random() * paraulesDisponibles.length)
+    const paraulaAleatoria = paraulesDisponibles[index].split("")
 
     //Mapeig amb les lletres
     const resultat = [];
@@ -29,8 +30,34 @@ function initPenjat(paraula, lletres){
     return new Penjat(paraula, lletres);
 }
 
-function jugar(lletra){
-    //TODO: Comprovar si la letra esta dentro de la palabra
-    lletra.estat = 'ACERT'
-    console.log(lletra);
+function jugar(penjat, lletra){
+    let paraulaCorrecta = false
+
+    //Compruebo si la palabra seleccionada está en la palabra final
+    for(const l of penjat.paraula){
+        if(l.valor === lletra.valor){
+            paraulaCorrecta = true
+        }
+    }
+
+    if(paraulaCorrecta){
+        lletra.estat = 'ACERT'
+    }else{
+        lletra.estat = 'ERROR'
+        penjat.numErrors++
+    }
+
+    //Compruebo si se han adivinado todas las letras de la palabra
+    let totesEncertades = true
+    for(const l of penjat.paraula){
+        if(l.estat !== 'ACERT'){
+            totesEncertades = false
+        }
+    }
+
+    if(penjat.numErrors >= penjat.maxErrors){
+        penjat.estat = 'PERDUT'
+    }else if(totesEncertades){
+        penjat.estat = 'GUANYAT'
+    }
 }

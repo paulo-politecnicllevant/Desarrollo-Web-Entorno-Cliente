@@ -1,19 +1,21 @@
 function pintarPenjat(penjat) {
+    document.body.innerHTML = ''
     //PINTAR PENJAT
     //Pintar imatge
-    pintarImatge()
+    pintarImatge(penjat)
     //Pintar paraula
     pintarParaula(penjat.paraula)
     //Pintar lletres
     pintarLletres(penjat);
+    pintarMissatge(penjat);
 
 }
 
-function pintarImatge(){
+function pintarImatge(penjat) {
     //Pintar imatge
     const imatge = document.createElement("img")
-    imatge.src = 'assets/1.PNG';
-    document.querySelector('#app').appendChild(imatge);
+    imatge.src = 'assets/' + (penjat.numErrors + 1) + '.PNG';
+    document.body.appendChild(imatge);
 }
 
 function pintarParaula(paraula){
@@ -28,7 +30,7 @@ function pintarParaula(paraula){
         }
         paraulaWrap.appendChild(l)
     }
-    document.querySelector('#app').appendChild(paraulaWrap)
+    document.body.appendChild(paraulaWrap)
 }
 
 function pintarLletres(penjat){
@@ -54,7 +56,29 @@ function pintarLletres(penjat){
             pintarParaula(penjat.paraula)
         })
 
+        //Si la letra ha sido seleccionada se desactiva
+        if(lletra.estat !== 'DESCONEGUT' || penjat.estat !== 'JUGANT'){
+            button.disabled = true
+        }
+
+        button.addEventListener('click', function(){
+            jugar(penjat, lletra)
+            pintarPenjat(penjat)
+        })
+
         lletresWrap.appendChild(button)
     }
-    document.querySelector('#app').appendChild(lletresWrap)
+    document.body.appendChild(lletresWrap)
+}
+
+function pintarMissatge(penjat){
+    if(penjat.estat === 'GUANYAT'){
+        const missatge = document.createElement('h1')
+        missatge.innerText = 'Has guanyat'
+        document.body.appendChild(missatge)
+    }else if(penjat.estat === 'PERDUT'){
+        const missatge = document.createElement('h1')
+        missatge.innerText = 'Has perdut'
+        document.body.appendChild(missatge)
+    }
 }
