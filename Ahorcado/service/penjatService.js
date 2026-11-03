@@ -9,10 +9,19 @@ function initLletres(){
 }
 
 function initParaula(lletres){
-    const paraulesDisponibles = ["windows", "macosx", "linux", "java", "informatica", "programacio"]
+    const paraulesDisponibles = [
+        "manzana", "computadora", "guitarra", "espejo",
+        "montaña", "universo", "elefante", "cuaderno", "tormenta",
+        "camino", "silencio", "ventana", "planeta", "brújula",
+        "oceano", "mariposa", "castillo", "desierto", "invierno",
+        "alegría", "sombra", "fuego", "destino", "aventura",
+        "horizonte", "galaxia", "orquesta", "laberinto", "antorcha"
+    ];
+
     //Agafam una paraula aleatoria
     const index = Math.floor(Math.random() * paraulesDisponibles.length)
     const paraulaAleatoria = paraulesDisponibles[index].split("")
+    console.log("Palabra aleatoria", paraulaAleatoria)
 
     //Mapeig amb les lletres
     const resultat = [];
