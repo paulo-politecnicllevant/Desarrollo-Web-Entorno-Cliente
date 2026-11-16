@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script>
+    //PROMISE
+
+    //Servei
+    //Param: mensage, tiempo en segundos
+    //Return promise con el mensaje
+    function saludarDelay(missatge, temps){
+        return new Promise(function (ok, ko){
+            if(temps <= 0){
+                ko(new Error("El tiempo no puede ser 0 o inferior"))
+            }
+
+            setTimeout(function(){
+                ok(missatge)
+            }, temps * 1000)
+        })
+    }
+
+    //Vista
+    saludarDelay("Hola", 0)
+        .then(function (miss){
+            document.querySelector("#app").innerHTML = miss
+    })
+        .catch(function (error) {
+            document.querySelector("#app").innerHTML = "No"
+        })
+
+    //PROBLEMA ACOPLAMIENTO VISTA
+    /*function saludarDelay(missatge, temps){
+        setTimeout(function(){
+            document.querySelector("#app").innerHTML = missatge
+        }, temps * 1000)
+    }
+
+    saludarDelay("hola", 3)*/
+
+</script>
+</body>
+</html>

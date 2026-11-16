@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //JSON: Formato para intercambiar datos
+    function Usuari(nom, cognom1, cognom2, username){
+        this.nom = nom;
+        this.cognom1 = cognom1
+        this.cognom2 = cognom2
+        this.username = username
+    }
+
+    const martina = new Usuari('Martina', 'Rodriguez', 'Riera', 'modriguerz')
+    const paula = new Usuari('Paula', 'Rigo', 'Binimelis', 'pbinimelis')
+    const gori = new Usuari('Gori', 'Llull', 'Prohens', 'gllull')
+
+    const usuaris = [martina, paula, gori]
+
+    //OBJETO JS (ARRAY DE OBJETOS) ---> FORMATO JSON
+    const usuarisJSON = JSON.stringify(usuaris)
+
+    //FORMATO JSON --> OBJETO JS (ARRAY DE OBJETOS)
+    const usuarisObjecte = JSON.parse(usuaris)
+
+    console.log(usuarisObjecte)
+    console.log(usuarisJSON)
+
+
+</script>
+</body>
+</html>
