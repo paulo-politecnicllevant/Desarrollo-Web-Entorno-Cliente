@@ -1,0 +1,7 @@
+body { margin: 0; font-family: system-ui, sans-serif; color: #202020; background: #f3f3f3; }
+#app { max-width: 720px; margin: 36px auto; padding: 28px; background: white; }
+select, button { font: inherit; padding: 8px 12px; margin: 5px; }
+.daus { display: flex; gap: 20px; min-height: 120px; align-items: center; margin: 20px 0; }
+.daus img { width: 100px; height: 100px; }
+.marcador { font-weight: bold; }
+.error { color: #a00000; min-height: 24px; }
